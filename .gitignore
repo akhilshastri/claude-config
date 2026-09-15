@@ -1,0 +1,40 @@
+# ---------------------------------------------------------------------------
+# Deny by default.
+#
+# This repo holds ~/.claude, which also contains OAuth credentials, full
+# conversation transcripts, session state and a ~1 GB plugin cache. Rather
+# than blocklisting those (and hoping the list stays current), everything is
+# ignored and only curated configuration is allowed back in below.
+#
+# To version something new: add an explicit `!path` rule. Never remove the `*`.
+# ---------------------------------------------------------------------------
+*
+
+!.gitignore
+!README.md
+
+# Curated configuration
+!CLAUDE.md
+!settings.json
+
+!agents/
+!agents/**
+
+!commands/
+!commands/**
+
+!skills/
+!skills/**
+
+!templates/
+!templates/**
+
+# ---------------------------------------------------------------------------
+# Belt and braces: these can never be tracked, whatever the rules above say.
+# ---------------------------------------------------------------------------
+.credentials.json
+**/.credentials.json
+**/settings.local.json
+**/*.pem
+**/.env
+**/.env.*
